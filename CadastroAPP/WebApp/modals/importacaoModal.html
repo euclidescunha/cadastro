@@ -1,0 +1,39 @@
+﻿<section class="modal-imp-funcionario">
+    <div class="modal-header" ng-init="modalimp.init()">
+        <button type="button" class="close" ng-click="modalimp.cancel()">𝘅</button>
+        <h4 class="modal-title text-center">Importar Funcionario</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group text-center">
+            <div file-upload files="filesUploadAttempt" id="fileInput" class="hidden">
+                <input type="file" accept="txt/*" style="" />
+            </div>
+            <div class="alert alert-danger" ng-show="modalimp.uploadErrors.length">
+                <ul>
+                    <li ng-repeat="error in modalimp.uploadErrors">{{ error }}</li>
+                </ul>
+            </div>
+            <div class="alert  alert alert-success" ng-show="modalimp.sucesso.mensagem">
+                {{modalimp.sucesso.mensagem}}
+            </div>
+
+            <div class="form-group text-left">
+                <label for="cargo">Cargo:</label>
+                <select name="grupo" ng-model="modalimp.cargoSelecionada" class="form-control input-cargo"
+                        ng-options="item.id as (item.cargo | uppercase) for item in modalimp.cargos">
+                    <option value="">Escolher Cargo</option>
+                </select>
+            </div>
+
+            <div class="form-group text-left">
+                <label for="ImporatarFuncionario">Importar Funcionario:</label>
+                <input class="form-control input-cad-funcionario" value="{{modalimp.arquivo.name}}" disabled>
+                <button type="button" title="Selecionar" ng-click="modalimp.showUploadDialog($event, 1)" class="btn btn-selecionar">Selecionar</button>
+            </div>
+        </div>
+        <div class="text-right col-btn-space">
+            <button type="button" title="Fechar" class="btn btn-fechar" ng-click="modalimp.close()">Fechar</button>
+            <button type="submit" title="confirmar" ng-disabled="!modalimp.arquivo" ng-click="modalimp.importarFuncionario()" class="btn btn-confirmar">Confirmar</button>
+        </div>
+    </div>
+</section>

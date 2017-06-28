@@ -1,0 +1,35 @@
+﻿<section class="modal-cad-usuario">
+    <div class="modal-header" ng-init="modalusuario.init()">
+        <button type="button" class="close" ng-click="modalusuario.cancel()">𝘅</button>
+        <h4 class="modal-title text-center">Cadastrar Usuário</h4>
+    </div>
+    <div class="modal-body id="ModalCadUsuario">
+        <form novalidate name="formulario" ng-submit="modalusuario.salvarUsuario()">
+            <div class="form-group text-center">
+                <div class="alert  alert alert-danger" ng-show="modalusuario.erro.mensagem">
+                    {{modalusuario.erro.mensagem}}
+                </div>
+                <div class="alert  alert alert-success" ng-show="modalusuario.sucesso.mensagem">
+                    {{modalusuario.sucesso.mensagem}}
+                </div>
+                <div class="form-group text-left">
+                    <label for="Login">Login:</label>
+                    <input type="text" ng-model="modalusuario.usuario.Login" required ng-disabled="modalusuario.usuario.IdLogin" alt="" title="" id="Login" class="form-control">
+                </div>
+                <div class="form-group text-left">
+                    <label for="Senha">Senha:</label>
+                    <input type="password" ng-model="modalusuario.usuario.Senha" required alt="" title="" id="senha" class="form-control ">
+                </div>
+                <div class="form-group text-left">
+                    <label for="confSenha">Redigite a Senha:</label>
+                    <input type="password" ng-model="modalusuario.usuario.SenhaRedigitada" required alt="" title="" id="confirmasenha" class="form-control">
+                </div>
+            </div>
+            <div class="text-right col-btn-space">
+                <button type="button" title="Fechar" class="btn btn-fechar" ng-click="modalusuario.close()">Fechar</button>
+                <button type="submit" title="confirmar" ng-disabled="formulario.$invalid" class="btn btn-confirmar">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</section>
+    

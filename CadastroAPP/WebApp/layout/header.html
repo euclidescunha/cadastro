@@ -1,0 +1,101 @@
+﻿<nav class="navbar navbar-default navbar-static-top" ng-init="header.init()">
+    <header class="container-fluid header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 text-left">
+                    <h2 class="title-header">Sistema de Cadastro</h2>
+                </div>
+
+                <div class="col-md-4 text-right hidden-xs hidden-sm">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid color-menu" ng-show="header.dados.autenticado">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 nav-center">
+
+                    <ul class="nav nav-tabs hidden-xs hidden-sm">
+                        <li class="dropdown" ng-class="{'active':header.aba == 'usuario' || header.aba == 'empresa'}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administração<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="header.empresa()">Empresa</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a ng-click="header.cargo()">Cargo</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a ng-click="header.usuario()">Usuário</a></li>
+                            </ul>
+                        </li>
+
+                        <li ng-if="header.importacao" ng-class="{'active':header.aba == 'importacao'}">
+                            <a ng-click="header.importacao()">Importação</a>
+                        </li>
+
+                        <li ng-if="header.funcionario" ng-class="{'active': header.aba == 'funcionario'}">
+                            <a ng-click="header.funcionario()">Funcionário</a>
+                        </li>
+                    </ul>
+
+                    <div class="tabContent" id="tabContent1">
+                        <div class="panel-group visible-xs visible-sm text-center" id="accordion">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapseOne" ng-click="header.administracao()">administração</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a ng-click="header.empresa()">empresa</a></li>
+                                        <li class="list-group-item"><a ng-click="header.cargo()">cargo</a></li>
+                                        <li class="list-group-item"><a ng-click="header.usuario()">usuário</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="modal" data-target="#ModalCadFuncionario" data-parent="#accordion" ng-click="header.importacao()">importação</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse"></div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" ng-click="header.funcionario()">Funcionário</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse"></div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" ng-click="header.sair()">logout <span class="user-name-resp">{{header.dados.nome}}</span></a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse"> <span class="user-name-responsive">{{header.dados.nome}}</span> </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="pull-right hidden-xs hidden-sm" ng-show="header.dados.autenticado">
+                        <div class="logout-position">
+                            <span class="user-name">{{header.dados.nome}}</span>
+                            <a ng-click="header.sair()">Logout</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>

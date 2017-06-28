@@ -1,0 +1,27 @@
+﻿<div class="container login" ng-init="login.init()">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">           
+            <form name="formLogin" class="form form-login" novalidate>
+                <div class="alert alert-danger" ng-show="login.erro.mensagem">
+                    {{login.erro.mensagem}}
+                </div>
+
+                <fieldset>
+                    <div class="form-group">
+                        <label for="loginUser">Usuário</label>
+                        <input type="text" ng-model="login.dados.usuario" name="user" class="form-control form__text form__user" id="loginUser" placeholder="Usuário" required maxlength="20" ng-maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Senha</label>
+                        <input type="password" ng-model="login.dados.senha" name="password" class="form-control form__text form__password" id="loginPassword" placeholder="Senha" required maxlength="20" ng-maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn-login" ng-click="login.entrar()" ng-disabled="formLogin.$invalid">Entrar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

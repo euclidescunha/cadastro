@@ -1,0 +1,94 @@
+﻿<section class="funcionario space-panel container border-container container-mobile" ng-init="funcionario.init()">
+    <form class="form">
+        <div class="form-filter">
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="codigo do funcionario">Cód. Funcionário:</label>
+                <input type="text" ng-model="funcionario.funcionarioRequest.CodigoFuncionario" alt="" title="" class="form-control form-home">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-select">
+                <label for="cargo">Cargo:</label>
+                <select name="grupo" ng-model="funcionario.cargoSelecionada" class="form-control"
+                        ng-options="item.id as (item.cargo | uppercase) for item in funcionario.cargos">
+                    <option value="">Escolher Cargo</option>
+                </select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-select">
+                <label for="empresa">Empresa:</label>
+                <select name="grupo" ng-model="funcionario.funcionarioRequest.CodEmpresa" class="form-control"                         
+                        ng-options="empresa.Id as (empresa.Descricao | uppercase) for empresa in funcionario.responseFuncionario.Empresas">
+                    <option value="">Escolher Empresa</option>
+                </select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-inicio">Data Início:</label>
+                <input type="text" ng-model="funcionario.funcionarioRequest.DataInicio" alt="" title="" name="DataInico" class="form-control form-home form_date" id="DataInico" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-fim">Data Fim:</label>
+                <input type="text" ng-model="funcionario.funcionarioRequest.DataFim" alt="" title="" name="DataFim" class="form-control form-home form_date" id="DataFim" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="display-filter text-right">
+                <button type="submit" ng-click="funcionario.filtrar()" alt="" title="" class="form-control btn btn-filtrar">Filtrar</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</section>
+
+<section class="space-panel container border-table-container table-mobile">
+    <div class="table-responsive border-table">
+        <div class="col-md-12">
+            <div class="row">
+                <button type="submit" ng-click="usuario.openModalEditar(null)" class="btn btn-inserir" alt="" title="">Cadastrar Funcionário</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <table class="table text-left funcionario-table">
+            <thead>
+                <tr>                    
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Data Nascimento</th>
+                    <th>Cargo</th>                   
+                    <th>Data Cargo</th>
+                    <th>Empresa</th>
+                    <th>Identidade</th>
+                    <th>CPF</th>
+                    <th>Passaporte</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="registro in funcionario.responseFuncionario.FuncionarioPaginado">
+                <tr>
+                    <th scope="row">{{registro.IdFuncionario}}</th>
+                    <td>{{registro.IdFuncionario}}</td>                   
+                    <td>{{registro.NomeFuncionario}}</td>                   
+                    <td>{{registro.DataNascimento | filtroData}}</td>
+                    <td>{{registro.Cargo}}</td>    
+                    <td>{{registro.DataCargo | filtroData}}</td>
+                    <td>{{registro.DescricaoEmpresa}}</td>
+                    <td>{{registro.Identidade}}</td>
+                    <td>{{registro.CPF}}</td>
+                    <td>{{registro.Passaporte}}</td>                   
+                    <td class="icone-edit"><button type="button" class="btn btn-editar" ng-click="funcionario.openModalEditar(null,registro)" alt="editar" title="editar"></button></td>
+                    <td class="icone-del"><button type="button" ng-click="funcionario.excluirFuncionario(registro.IdFuncionario)" class="btn btn-deletar" alt="deletar" title="deletar"></button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul uib-pagination total-items="funcionario.TotalDeRegistros" ng-model="funcionario.PaginaAtual" max-size="5" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" previous-text="«" next-text="»"></ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Funcionario</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <base href="/">
+    <!-- build:css css/style.css -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- endbuild -->
+</head>
+<body ng-app="cadastroApp">
+   <div id="us-spinner" class="container-spinner" us-spinner></div>
+
+    <div class="container__app">
+        <div ui-view="header"></div>
+        <div ui-view="viewContent" toggle-navbar></div>
+        <div ui-view="footer"></div>
+    </div>
+
+    <!-- build:js_lib js/scripts.js -->
+    <script type="text/javascript" src="/libs/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/libs/angular.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-locale_pt-br.js"></script>
+    <script type="text/javascript" src="/libs/angular-ngStorage.js"></script>
+    <script type="text/javascript" src="/libs/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/libs/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="/libs/angular-messages.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-touch.min.js"></script>
+    <script type="text/javascript" src="/libs/spin.min.js"></script>
+    <script type="text/javascript" src="/libs/angular-spinner.min.js"></script>    
+    <script type="text/javascript" src="/libs/mask.min.js"></script>
+    <script type="text/javascript" src="/app.module.js"></script>
+    <script type="text/javascript" src="/app.config.js"></script>
+    <script type="text/javascript" src="/app.router.js"></script>
+    <script type="text/javascript" src="/services/configuracao.service.js"></script>   
+    <script type="text/javascript" src="/services/storage.service.js"></script>
+    <script type="text/javascript" src="/services/aut.service.js"></script>
+    <script type="text/javascript" src="/services/importacao.service.js"></script>
+    <script type="text/javascript" src="/services/funcionario.service.js"></script>
+    <script type="text/javascript" src="/services/usuario.service.js"></script>
+    <script type="text/javascript" src="/services/empresa.service.js"></script>
+    <script type="text/javascript" src="/services/cargo.service.js"></script>
+    <script type="text/javascript" src="/services/utils.service.js"></script>    
+    <script type="text/javascript" src="/directives/date.directive.js"></script>
+    <script type="text/javascript" src="/directives/fileUpload.directive.js"></script>
+    <script type="text/javascript" src="/directives/spinner.directive.js"></script>
+    <script type="text/javascript" src="/layout/header.controller.js"></script>
+    <script type="text/javascript" src="/login/login.controller.js"></script>
+    <script type="text/javascript" src="/login/cargo.controller.js"></script>    
+    <script type="text/javascript" src="/importacao/importacao.controller.js"></script>
+    <script type="text/javascript" src="/funcionario/funcionario.controller.js"></script>
+    <script type="text/javascript" src="/usuario/usuario.controller.js"></script>   
+    <script type="text/javascript" src="/administracao/administracao.controller.js"></script>   
+    <script type="text/javascript" src="/empresa/empresa.controller.js"></script>   
+    <script type="text/javascript" src="/modals/importacaoModal.controller.js"></script>   
+    <script type="text/javascript" src="/modals/funcionarioModal.controller.js"></script>   
+    <script type="text/javascript" src="/modals/usuarioModal.controller.js"></script> 
+    <script type="text/javascript" src="/modals/empresaModal.controller.js"></script> 
+    <script type="text/javascript" src="/filters/date.filter.js"></script>
+    <!--<script type="text/javascript" src="libs.min.js"></script>
+    <script type="text/javascript" src="/app.module.js"></script>
+    <script type="text/javascript" src="/app.config.js"></script>
+    <script type="text/javascript" src="/app.router.js"></script>
+    <script type="text/javascript" src="app.min.js"></script>-->
+    <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<section class="funcionario space-panel container border-container container-mobile" ng-init="empresa.init()">
+    <form class="form">
+        <div class="form-filter">
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="codigo do empresa">Cód. Empresa:</label>
+                <input type="text" ng-model="empresa.empresaRequest.CodigoEmpresa" alt="" title="" class="form-control form-home">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="codigo do empresa">Nome Empresa:</label>
+                <input type="text" ng-model="empresa.empresaRequest.NomeEmpresa" alt="" title="" class="form-control form-home">
+            </div>
+                       
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-inicio">Data Início:</label>
+                <input type="text" ng-model="empresa.empresaRequest.DataInicio" alt="" title="" name="DataInico" class="form-control form-home form_date" id="DataInico" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-fim">Data Fim:</label>
+                <input type="text" ng-model="empresa.empresaRequest.DataFim" alt="" title="" name="DataFim" class="form-control form-home form_date" id="DataFim" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="display-filter text-right">
+                <button type="submit" ng-click="empresa.filtrar()" alt="" title="" class="form-control btn btn-filtrar">Filtrar</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</section>
+
+<section class="space-panel container border-table-container table-mobile">
+    <div class="table-responsive border-table">
+       
+        <table class="table text-left funcionario-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Código do Empresa</th>                   
+                    <th>Data Cadastro</th>                    
+                    <th>Empresa</th>                    
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="registro in empresa.responseEmpresa.EmpresaPaginado">
+                <tr>
+                    <th scope="row">{{registro.IdEmpresa}}</th>
+                    <td>{{registro.IdEmpresa}}</td>                    
+                    <td>{{registro.DataCadastro | filtroData}}</td>                    
+                    <td>{{registro.DescricaoEmpresa}}</td>                   
+                    <td class="icone-edit"><button type="button" class="btn btn-editar" ng-click="empresa.openModalEditar(null,registro)" alt="editar" title="editar"></button></td>
+                    <td class="icone-del"><button type="button" ng-click="empresa.excluirEmpresa(registro.IdEmpresa)" class="btn btn-deletar" alt="deletar" title="deletar"></button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul uib-pagination total-items="empresa.TotalDeRegistros" ng-model="empresa.PaginaAtual" max-size="5" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" previous-text="«" next-text="»"></ul>
+            </div>
+        </div>
+    </div>
+</section>

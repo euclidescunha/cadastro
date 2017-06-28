@@ -1,0 +1,79 @@
+.btn-default
+	background-color: $default
+	margin: 0 auto
+	font-size: 1em
+	color: #fff
+	font-weight: 500
+	text-transform: uppercase
+	border-radius: 6px
+	padding: 8px 20px
+	height: auto
+	&:hover, &:focus, &:visited, &:active, &:link
+		color: #fff
+
+.btn-login, .btn-filtrar, .btn-inserir, .btn-editar, .btn-selecionar, .btn-fechar, .btn-confirmar
+	@extend .btn-default
+
+
+.btn-login
+	max-width: 140px
+
+.btn-filtrar
+	margin-top: 20px
+	max-width: 140px
+	padding: 10px 0
+
+.btn-inserir
+	text-transform: none
+	margin: 18px 0 28px 0
+	padding: 8px 28px
+
+.btn-editar
+	background: url('../img/btn-editar.png') no-repeat center center
+	width: 24px
+	height: 20px
+	border: none
+
+
+.btn-deletar
+	background: url('../img/btn-deletar.png') no-repeat center center
+	width: 24px
+	height: 20px
+	border: none
+
+.btn-selecionar
+	padding: 6px 10px
+	display: inline-block
+	vertical-align: middle
+	border: 1px solid #ccc
+	background-color: transparent
+	text-transform: none
+	color: #000
+	font-weight: 600
+	&:hover, &:focus, &:visited, &:active, &:link
+		color: #000
+
+.btn-fechar
+	vertical-align: middle
+	border: 1px solid #ccc
+	background-color: transparent
+	text-transform: none
+	color: #000
+	font-weight: 700
+	&:hover, &:focus, &:visited, &:active, &:link
+		color: #000
+
+.btn-confirmar
+	margin-left: 2px
+	
+
+.close
+	float: right
+	font-size: 34px
+	font-weight: 700
+	color: #000
+	line-height: 0.2
+	text-shadow: none
+	opacity: 5
+	&:hover, &:focus, &:visited, &:active, &:link
+		color: #000

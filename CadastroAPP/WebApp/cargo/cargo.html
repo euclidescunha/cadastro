@@ -1,0 +1,54 @@
+﻿<section class="usuario space-panel container border-container container-mobile" ng-init="cargo.init()">
+    <form class="form" >
+        <div class="form-filter">
+            <div class="col-xs-12 col-sm-12 display-select">
+                <label for="Cargo">Cargo:</label>
+                <input type="text" ng-model="cargo.cargoRequest.NomeCargo" alt="" title="" class="form-control form-home">
+                <button type="submit" ng-click="administracao.filtrar()" alt="" title="" class="form-control btn btn-filtrar visible-sm visible-xs">Filtrar</button>
+            </div>
+            <div class="hidden-sm hidden-xs display-filter text-right">
+                <button type="submit" ng-click="cargo.filtrar()" alt="" title="" class="form-control btn btn-filtrar">Filtrar</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</section>
+
+<section class="space-panel container border-table-container table-mobile">
+    <div class="table-responsive border-table">
+        <div class="col-md-12">
+            <div class="row">
+                <button type="submit" ng-click="cargo.openModalCargo(null)" class="btn btn-inserir" alt="" title="">Cadastrar Cargo</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <table class="table text-left administracao-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cargo</th>
+                    <th>Data de Criação</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="registro in cargo.responseCargo.CargoPaginado">
+                <tr>
+                    <th scope="row">{{registro.IdLogin}}</th>
+                    <td>{{registro.Login}}</td>
+                    <td>{{registro.DataCriacao}}</td>
+                    <td class="icone-edit"><button type="button" class="btn btn-editar" ng-click="cargo.openModalCargo(registro)" alt="editar" title="editar"></button></td>
+                    <td class="icone-del"><button type="button" ng-click="cargo.excluirCargo(registro.IdLogin,registro.Login)" class="btn btn-deletar" alt="deletar" title="deletar"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul uib-pagination total-items="cargo.TotalDeRegistros" ng-model="cargo.PaginaAtual" max-size="5" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" previous-text="«" next-text="»"></ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</section>

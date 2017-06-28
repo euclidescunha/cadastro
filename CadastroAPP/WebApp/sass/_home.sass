@@ -1,0 +1,139 @@
+.nav-center
+  padding: 10px 10px
+
+.nav > li > a:focus, .nav > li > a:hover 
+    text-decoration: none
+    background-color: #00529e
+    color: #fff
+
+.nav-tabs > li > a
+  text-transform: uppercase
+  font-size: 1em
+  font-weight: 600
+  color: #000
+
+.panel-title > a
+  text-transform: uppercase
+  text-decoration: none
+  font-size: 1em
+  font-weight: 600
+  color: #000
+
+.container-position
+  position: relative
+
+.logout-position
+  position: absolute
+  right: 18px
+  top: 20px
+  z-index: 5
+  a
+    text-decoration: none
+    font-weight: 600
+    font-size: 1em
+    color: #000
+    padding: 0 2px
+
+.user-name
+  font-size: 1em
+  font-weight: 600
+  border-right: 1px solid #000
+  padding: 0 7px
+  color: #000
+
+.user-name-resp
+  font-size: 0.9em
+  font-weight: 600
+  color: $default
+  text-transform: capitalize
+  display: inline-block
+  vertical-align: top
+  &:before
+    content: "( "
+    color: #000
+  &:after
+    content: " )"'1 '
+    color: #000
+
+.form-home
+  display: inline-block
+  max-width: 140px
+  min-height: 37px
+
+.form-filter
+  padding: 500px 0
+  form
+    display: flex
+    align-items: center
+  label
+    display: block
+
+.border-container
+  background-color: #eeeeee
+  border: solid 1px #e0e0e0
+  border-radius: 7px
+
+
+.border-table-container
+  margin-top: 10px
+  border: solid 1px #ddd
+  border-radius: 5px
+
+.border-table
+  border: none
+
+tbody > tr:nth-child(even)
+  background-color: #e5edf5
+
+.table > tbody > tr > td, .table > tbody > tr > th
+  line-height: 2
+  border-bottom: 1px solid #00529e
+
+.table  > thead > tr > th
+  border-bottom: 2px solid #00529e
+
+.icone-del
+  vertical-align: middle !important
+
+.icone-edit
+  padding: 0 1px 0px 2px !important
+  vertical-align: middle !important
+  text-align: right
+
+.pagination > li > a
+  color: #000
+  font-weight: 600
+  &:hover, &:focus
+    background: #00529e
+    color: #fff
+
+.page-navigation
+  margin: -25px 0 -15px 0
+
+.space
+  margin-bottom: 20px
+
+.container-mobile
+  @media (max-width: 991px)
+    padding: 0 10px
+    form div
+      padding: 0
+      label
+        margin-bottom: 2px
+      .form-home
+        display: block
+      input
+        margin-bottom: 5px
+        max-width: 100%
+    .btn-filtrar
+      margin: 10px auto
+      display: block
+
+.btn-inserir
+  @media (max-width: 991px)
+    display: block
+    margin: 18px auto 28px auto
+
+.table-mobile
+  @media (max-width: 991px)
+    padding: 0 10px

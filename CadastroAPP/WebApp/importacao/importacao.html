@@ -1,0 +1,79 @@
+﻿<section class="importacao space-panel container border-container container-mobile" ng-init="importacao.init()">
+    <form class="form">
+        <div class="form-filter">
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="usuario">Usuário:</label>
+                <input type="text" ng-model="importacao.importacaoRequest.Usuario" alt="" title="" class="form-control form-home">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-select">
+                <label for="cargo">Cargo:</label>
+                <select name="grupo" ng-model="importacao.cargoSelecionada" class="form-control"
+                        ng-options="item.id as (item.cargo | uppercase) for item in importacao.cargos">
+                    <option value="">Escolher Cargo</option>
+                </select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-select">
+                <label for="none">Nome do arquivo:</label>
+                <input type="text" ng-model="importacao.importacaoRequest.NomeArquivo" alt="" title="" class="form-control form-home">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-inicio">Data Início:</label>
+                <input type="text" ng-model="importacao.importacaoRequest.DataInicio" name="DataInico" class="form-control form-home" id="DataInico" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 display-filter">
+                <label for="data-fim">Data Fim:</label>
+                <input type="text" ng-model="importacao.importacaoRequest.DataFim" name="DataFim" class="form-control form-home" id="DataFim" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+            </div>
+
+            <div class="text-right display-filter">
+                <button type="submit" ng-click="importacao.filtrar()" alt="" title="" class="form-control btn btn-filtrar">Filtrar</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </form>
+</section>
+
+<section class="space-panel container border-table-container table-mobile">
+    <div class="table-responsive border-table">
+        <div class="col-md-12">
+            <div class="row">
+                <button type="submit" ng-click="importacao.openModalimportar('lg')" class="btn btn-inserir" alt="" title="">Importar Funcionario</button>
+            </div>
+        </div>
+        <table class="table text-left importacao-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Arquivo</th>
+                    <th>Data da Importação</th>
+                    <th>Nome do Usuário</th>
+                    <th>Importados com Sucesso</th>
+                    <th>Importados Erro</th>
+                    <th>Importados Duplicado</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="Arquivo in importacao.responseImportacao.ImportacaoPaginado">
+                <tr>
+                    <th scope="row">{{Arquivo.IdArquivo}}</th>
+                    <td>{{Arquivo.NomeArquivo}}</td>
+                    <td>{{Arquivo.DataImportacao}}</td>
+                    <td>{{Arquivo.NomeUsuario}}</td>
+                    <td class="text-center">{{Arquivo.ImportadoSucesso}}</td>
+                    <td class="text-center">{{Arquivo.ImportadosErro}}</td>
+                    <td class="text-center">{{Arquivo.ImportadosDuplicados}}</td>
+                </tr>
+            </tbody>
+        </table>    
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul uib-pagination total-items="importacao.TotalDeRegistros" ng-model="importacao.PaginaAtual" max-size="5" class="pagination" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" previous-text="«" next-text="»"></ul>
+            </div>
+        </div>
+    </div>
+</section>

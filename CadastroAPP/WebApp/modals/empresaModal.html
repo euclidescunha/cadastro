@@ -1,0 +1,39 @@
+﻿<section class="modal-empresa">
+    <div class="modal-header" ng-init="modalempresa.init()">
+        <button type="button" class="close" ng-click="modalempresa.cancel()">𝘅</button>
+        <h4 class="modal-title text-center">Cadastro de Empresa</h4>
+    </div>
+    <div class="modal-body">
+        <form novalidate name="formulario" ng-submit="modalempresa.salvarEmpresa()">
+            <div class="form-group text-center">
+                <div file-upload files="filesUploadAttempt" id="fileInput" class="hidden">
+                    <input type="file" accept="txt/*" style="" />
+                </div>
+                <div class="alert  alert alert-danger" ng-show="modalempresa.erro.mensagem">
+                    {{modalempresa.erro.mensagem}}
+                </div>
+                <div class="alert  alert alert-success" ng-show="modalempresa.sucesso.mensagem">
+                    {{modalempresa.sucesso.mensagem}}
+                </div>
+
+                <div class="form-group text-left">
+                    <label for="cargo">Cargo:</label>
+                    <select class="form-control">
+                        <option value="">Escolher Cargo</option>
+                    </select>
+                </div>
+
+                <div class="form-group text-left">
+                    <label for="Campo1">Descrição:</label>
+                    <input class="form-control" type="text" ng-model="modalempresa.empresa.Descricao" required alt="" title="">
+                </div>
+            </div>
+
+            <div class="text-right col-btn-space">
+                <button type="button" title="Fechar" class="btn btn-fechar" ng-click="modalempresa.close()">Fechar</button>
+                <button type="submit" title="confirmar" ng-disabled="formulario.$invalid" class="btn btn-confirmar">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</section>
+

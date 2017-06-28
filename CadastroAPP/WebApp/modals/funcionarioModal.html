@@ -1,0 +1,39 @@
+﻿<section class="modal-edit-funcionario">
+    <div class="modal-header" ng-init="modalfuncionario.init()">
+        <button type="button" class="close" ng-click="modalfuncionario.cancel()">𝘅</button>
+        <h4 class="modal-title text-center">Editar Funcionario</h4>
+    </div>
+    <div class="modal-body">
+        <form novalidate name="formulario" ng-submit="modalfuncionario.alteraFuncionario()">
+            <div class="form-group text-center">
+                <div class="alert  alert alert-danger" ng-show="modalfuncionario.erro.mensagem">
+                    {{modalfuncionario.erro.mensagem}}
+                </div>
+                <div class="alert  alert alert-success" ng-show="modalfuncionario.sucesso.mensagem">
+                    {{modalfuncionario.sucesso.mensagem}}
+                </div>
+                <div class="form-group text-left">
+                    <h4 class="sub-title">Funcionario: {{modalfuncionario.funcionario.CodigoFuncionario}}</h4>
+                </div>
+                <div class="form-group text-left">
+                    <label for="data-inicio" class="sub-title-modal">Data Início:</label>
+                    <input type="text" ng-model="modalfuncionario.funcionario.DataInicio" required alt="" title="" name="DataInico" class="form-control form-home form_date" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+                </div>
+                <div class="form-group text-left">
+                    <label for="data-fim" class="sub-title-modal">Data Fim:</label>
+                    <input type="text" ng-model="modalfuncionario.funcionario.DataFim" required alt="" title="" name="DataFim" class="form-control form-home form_date" placeholder="dd/mm/aaaa" ui-mask="99/99/9999" maxlength="10" validar-data model-view-value="true" last-char>
+                </div>
+                <div class="form-group text-left">
+                    <label for="max-util" class="sub-title-modal">Máximo de utilização:</label>
+                    <input type="text" ng-model="modalfuncionario.funcionario.MaxUtilizacao" required
+                           ng-pattern="/\d+/" ng-maxlength="20" alt="" title="" class="form-control input-login">
+                </div>
+            </div>
+            <div class="text-right col-btn-space">
+                <button type="button" title="Fechar" class="btn btn-fechar" ng-click="modalfuncionario.close()">Fechar</button>
+                <button type="submit" title="confirmar" ng-disabled="formulario.$invalid" class="btn btn-confirmar">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</section>
+
